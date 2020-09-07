@@ -54,10 +54,28 @@ void testVector()
 #endif	// __cplusplus
 }
 
+#ifdef __cplusplus
+// C++ file io includes
+#include <string>
+#include <fstream>
+#else // !__cplusplus
+// C file io includes
+#endif // __cplusplus
 
 int main(int const argc, char const* const argv[])
 {
 	testVector();
+
+
+#ifdef __cplusplus
+	// C++ file io includes
+	ofstream file("openpls.txt");
+	string test = "hello";
+	file << test << endl;
+	file.close();
+#else // !__cplusplus
+	// C file io includes
+#endif // __cplusplus
 
 	// Image
 
